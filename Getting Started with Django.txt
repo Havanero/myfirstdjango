@@ -1,0 +1,63 @@
+Creating Django Project:
+
+Installation  Requirements:
+
+- pip
+- python
+- then run sudo pip install django (to install django)
+
+Creating New Django Project:
+
+- from terminal run
+- django-admin startproject firstdjango  (where firstdjango is the name of the project)
+
+Creating app or components for project:
+
+- cd to firstdjango dir
+- then run python manage.py startapp firstapp (firstapp is the name of the app)  
+
+Starting the local dev web server:
+
+-cd to firstdjango dir project
+-then run python manage.py startserver
+
+Adding Django App to Project:
+
+-locate settings.py under Django project folder
+-locate the line 33: INSTALLED_APPS, add the appname as tuple (ending with a comma)
+
+Understanding settings parameters are listed under:
+
+- www.djangoproject.com
+- link on doc
+- find development process
+- settings, click overview, the basics
+- setting reference has more details on it.
+
+
+Setting Needed to change:
+
+- INSTALLED_APPS : add, change app
+- TEMPLATES: adding templates
+- STATIC DIRS: css, templating
+- DEBUG: set to false for prod
+- DATABASE: can be change to much ours
+
+Models:
+-Create data layer found on models.py
+-Use class attributes for fields
+
+
+Migration:
+
+- When a models is added into a models file the database table does not exist yet
+- Migration needs to be created and run to keep the changes in sync
+- to run migration scripts cd into django project folder
+- run python manage.py makemigrations (this will create migration file versions but not apply them)
+- to see the migration run the python manage.py showmigrations
+- to apply migration run python manage.py migrate 
+
+Setting up Django Admin
+
+- 
+
