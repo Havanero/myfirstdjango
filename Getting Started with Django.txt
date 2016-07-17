@@ -59,5 +59,14 @@ Migration:
 
 Setting up Django Admin
 
-- 
+- Go to project folder and create admin user as
+  python3 manage.py createsuperuser
+- This will prompt for some info. blank pwd not allowed.
+- The admin site will be accessable via host:port/admin
+- To register the model (or table to be view on the admin site) we need to register it via
+- admin.py by first importing from .model the table name then use
+- admin.site.register(table name imported from models)
+
+
+
 
