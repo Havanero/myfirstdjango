@@ -11,19 +11,23 @@
 <div class="container">
     <div class="row">
         {% for item in items %}
-        <section class="col-md-4">
-            <img class="image_details" src="images/{{ item.image }}" alt="Icon">
-            <h3>{{ item.title|capfirst }}</h3>
+        <div class="col-xs-6 col-sm-4">
+            <h3><a href="{% url 'item_detail' item.id %}">
+                {{ item.title|capfirst }}
+            </a>
+            </h3>
             <p>{{ item.description|capfirst }}</p>
-        </section>
+            {% if item.image == None %}
+            <img class="img-responsive" src="images/no_image.jpg" alt="Icon">
+            {% else %}
+            <img class="img-responsive" src="images/{{ item.image }}" alt="Icon">
+            {% endif %}
+        </div>
         <!--a href="{% url 'item_detail' item.id %}">
             {{ item.title|capfirst }}
         </a !-->
 
         {% endfor %}
     </div>
-    <ul>
-
-    </ul>
 </div>
 {% endblock %}
