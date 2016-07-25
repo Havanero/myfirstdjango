@@ -19,9 +19,9 @@
             </h3>
             <p>{{ item.description|capfirst }}</p>
             {% if item.image == None %}
-            <img src="images/no_image.jpg" class="img-responsive center-block" alt="No Image Photo">
+                <img src="images/no_image.jpg" class="img-responsive center-block" alt="No Image Photo">
             {% else %}
-            <img src="images/{{ item.image }}" class="img-responsive center-block" alt="Images of {{ item.image}}" >
+                <img src="images/{{ item.image }}" class="img-responsive center-block" alt="Images of {{ item.image}}" >
             {% endif %}
         </div>
         {% endfor %}
