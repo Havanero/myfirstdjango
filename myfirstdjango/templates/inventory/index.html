@@ -11,16 +11,16 @@
 <div class="container">
     <div class="row">
         {% for item in items %}
-        <div class="col-xs-6 col-sm-4">
+        <div class="col-sm-2 col-sm-2">
             <h3><a href="{% url 'item_detail' item.id %}">
                 {{ item.title|capfirst }}
             </a>
             </h3>
             <p>{{ item.description|capfirst }}</p>
             {% if item.image == None %}
-            <img class="img-responsive" src="images/no_image.jpg" alt="Icon">
+            <img class="img-responsive" src="images/no_image.jpg" alt="Icon" style="max-height:220px">
             {% else %}
-            <img class="img-responsive" src="images/{{ item.image }}" alt="Icon">
+            <img class="img-responsive" src="images/{{ item.image }}" alt="Icon" style="max-height:220px">
             {% endif %}
         </div>
         {% endfor %}
