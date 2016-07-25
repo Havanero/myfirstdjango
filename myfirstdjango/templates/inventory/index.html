@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <header class="bgimage">
     <div class="container">
         <h3>Available Paintings </h3>
@@ -11,16 +12,16 @@
 <div class="container">
     <div class="row">
         {% for item in items %}
-        <div class="col-sm-2 col-sm-2">
+        <div class="col-sm-4">
             <h3><a href="{% url 'item_detail' item.id %}">
                 {{ item.title|capfirst }}
             </a>
             </h3>
             <p>{{ item.description|capfirst }}</p>
             {% if item.image == None %}
-            <img class="img-responsive" src="images/no_image.jpg" alt="Icon" style="max-height:220px">
+            <img src="images/no_image.jpg" class="img-responsive center-block" alt="No Image Photo">
             {% else %}
-            <img class="img-responsive" src="images/{{ item.image }}" alt="Icon" style="max-height:220px">
+            <img src="images/{{ item.image }}" class="img-responsive center-block" alt="Images of {{ item.image}}" >
             {% endif %}
         </div>
         {% endfor %}

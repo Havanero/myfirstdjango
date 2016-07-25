@@ -11,3 +11,11 @@
     height: 200px;
     width: 600px;
 }
+
+@media (max-width: 767px){
+    .img-responsive {
+        max-width: 50%;
+        mix-width: 300px;
+    }
+
+}
