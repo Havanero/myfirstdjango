@@ -1,0 +1,13 @@
+.bgimage {
+  background-image: url('../images/reptiles.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 200px;
+}
+
+.image_details {
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    width: 600px;
+}

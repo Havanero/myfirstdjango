@@ -5,7 +5,7 @@ from inventory.models import Item
 
 
 def index(request):
-    items = Item.objects.exclude(amount=0)
+    items = Item.objects.all()
     return render(request, 'inventory/index.html', {
         'items': items,
     })
@@ -19,3 +19,4 @@ def item_details(request, item_id):
     return render(request, 'inventory/item_detail.html', {
         'item': item
     })
+

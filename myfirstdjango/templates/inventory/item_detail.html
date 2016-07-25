@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
-{% block content %}
 
-    <a href="{% url 'index' %}">Back to Index</a>
-    <h3>{{ item.title|capfirst}}</h3>
-    <h4>Description:</h4>
-    <p>{{ item.description }}</p>
-    <p>{{ item.amount }}</p>
+{% block content %}
+<div class="container">
+    <div class="col-lg-4">
+        <a href="{% url 'index' %}">Back to Index</a>
+        <h3>{{ item.title|capfirst}}</h3>
+        <h4>Description:</h4>
+        <p>{{ item.description }}</p>
+        <p>{{ item.amount }}</p>
+        <img src="/static/images/{{ item.image }}" class="image_details">
+    </div>
+</div>
 {% endblock %}
