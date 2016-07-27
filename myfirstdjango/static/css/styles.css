@@ -1,8 +1,10 @@
 .bgimage {
-  background-image: url('../images/reptiles.jpg');
+  /*background-image: url('../images/reptiles.jpg');  */
+  background: #CCFFFF;
   background-position: center center;
   background-size: cover;
-  height: 200px;
+  height: 80px;
+  color: gray;
 }
 
 .image_details {
@@ -18,4 +20,15 @@
         mix-width: 300px;
     }
 
+}
+
+footer {
+    margin-top: 20px; /* space between content and footer */
+    background: #CCFFFF;
+    color: gray;
+    font-size: .8em;
+}
+
+footer p {
+    text-align: center;
 }

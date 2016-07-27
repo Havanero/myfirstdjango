@@ -5,26 +5,42 @@
 
 <header class="bgimage">
     <div class="container">
-        <h3>Available Paintings </h3>
-
+          <div class="col-sm-8 col-sm-4">
+              <h5>list of things to do this is snsns
+                  just a list of different paintings
+              </h5>
+          </div>
     </div>
 </header>
 <div class="container">
+    <h4>Available Paintings </h4>
     <div class="row">
         {% for item in items %}
-        <div class="col-sm-4">
-            <h3><a href="{% url 'item_detail' item.id %}">
-                {{ item.title|capfirst }}
-            </a>
-            </h3>
-            <p>{{ item.description|capfirst }}</p>
-            {% if item.image == None %}
-                <img src="images/no_image.jpg" class="img-responsive center-block" alt="No Image Photo">
-            {% else %}
-                <img src="images/{{ item.image }}" class="img-responsive center-block" alt="Images of {{ item.image}}" >
+        {% if forloop.counter|divisibleby:3 %}
+
+        <div class="row">
             {% endif %}
+            <div class="col-sm-4">
+                <h3><a href="{% url 'item_detail' item.id %}">
+                    {{ item.title|capfirst }}
+                </a>
+                </h3>
+                <p>{{ item.description|capfirst }}</p>
+                {% if item.image == None %}
+                <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
+                {% else %}
+                <img src="images/{{ item.image }}" class="img-responsive" alt="Images of {{ item.image}}">
+                {% endif %}
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+
+            <b>is now at 4</b>
+
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
+
+
 {% endblock %}
