@@ -24,7 +24,9 @@
                 {% if item.image == None %}
                 <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
                 {% else %}
-                <img src="images/{{ item.image }}" class="img-responsive" alt="Images of {{ item.image}}">
+                <a href="{% url 'item_detail' item.id %}">
+                    <img src="images/{{ item.image }}" class="img-responsive" alt="Images of {{ item.image}}">
+                    </a>
                 {% endif %}
             </div>
             {% if forloop.counter|divisibleby:3 %}
