@@ -12,7 +12,7 @@
     <div class="row">
         {% for item in items %}
         {% if forloop.counter|divisibleby:3 %}
-
+        <div class="container">
         <div class="row">
             {% endif %}
             <div class="col-sm-4">
@@ -30,9 +30,7 @@
                 {% endif %}
             </div>
             {% if forloop.counter|divisibleby:3 %}
-
-            <b></b>
-
+            </div>
         </div>
         {% endif %}
         {% endfor %}
