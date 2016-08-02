@@ -1,10 +1,10 @@
 .bgimage {
-  /*background-image: url('../images/reptiles.jpg');  */
-  background: #CCFFFF;
-  background-position: center center;
+  background-image: url('../images/Spalvotas_shuo_fonas_NEW_WAY.png');
+  background-position: bottom bottom;
   background-size: cover;
-  height: 80px;
+  height: 310px;
   color: gray;
+
 }
 
 .image_details {
