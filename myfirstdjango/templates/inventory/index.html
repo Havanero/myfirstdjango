@@ -25,7 +25,7 @@
                 <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
                 {% else %}
                 <a href="{% url 'item_detail' item.id %}">
-                    <img src="images/{{ item.image }}" class="img-responsive" alt="Images of {{ item.image}}">
+                    <img src="images/{{ item.image }}" class="img-responsive" alt="Images of {{ item.image}}" align="center">
                     </a>
                 {% endif %}
             </div>

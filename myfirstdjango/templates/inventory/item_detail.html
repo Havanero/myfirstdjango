@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container">
-    <div class="col-lg-4 col-md-7">
+    <div class="col-sx-6 col-md-6">
         <a href="{% url 'index' %}">Back to Index</a>
         <h3>{{ item.title|capfirst}}</h3>
         <h4>Description:</h4>
@@ -11,7 +11,7 @@
         {% if item.image == None %}
         <img class="img-responsive" src="/static/images/no_image.jpg" alt="Icon">
         {% else %}
-        <img class="img-responsive" src="/static/images/{{ item.image }}" alt="Icon">
+        <img class="image_details" src="/static/images/{{ item.image }}" alt="Icon">
         {% endif %}
 
     </div>
