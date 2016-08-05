@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <header class="bgimage">
     <div class="container">
     </div>
@@ -13,23 +12,25 @@
         {% for item in items %}
         {% if forloop.counter|divisibleby:3 %}
         <div class="container">
-        <div class="row">
-            {% endif %}
-            <div class="col-sm-4">
-                <h3><a href="{% url 'item_detail' item.id %}">
-                    {{ item.title|capfirst }}
-                </a>
-                </h3>
-                <p>{{ item.description|capfirst }}</p>
-                {% if item.image == None %}
-                <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
-                {% else %}
-                <a href="{% url 'item_detail' item.id %}">
-                    <img src="images/{{ item.image }}" class="img-responsive" alt="Images of {{ item.image}}" align="center">
-                    </a>
+            <div class="row">
                 {% endif %}
-            </div>
-            {% if forloop.counter|divisibleby:3 %}
+                <div class="col-sm-4">
+                    <h3><a href="{% url 'item_detail' item.id %}">
+                        {{ item.title|capfirst }}
+                    </a>
+                    </h3>
+                    <p>{{ item.description|capfirst }}</p>
+                    {% if item.image == None %}
+                    <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
+                    {% else %}
+                    <a href="{% url 'item_detail' item.id %}">
+                        <img src="static/images/{{ item.image }} " class="img-responsive"
+                             alt="Images of {{ item.image}}"
+                             align="center">
+                    </a>
+                    {% endif %}
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
             </div>
         </div>
         {% endif %}

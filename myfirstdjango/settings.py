@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x8hxt)8-8+t%=lfh(rs@9w^bwhrks!c+g%yieb%d4&9r=esd+3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -124,11 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'myfirstdjango', 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'myfirstdjango', 'static/')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'myfirstdjango', 'static'),
-)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'myfirstdjango', 'static', 'images/')
 MEDIA_URL = '/images/'
