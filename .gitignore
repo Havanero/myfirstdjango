@@ -1,5 +1,6 @@
-.idea
 *.pyc
+*.idea
 *.iml
 start_gunicorn_dev.sh
+myfirstdjango/settings.py
 
