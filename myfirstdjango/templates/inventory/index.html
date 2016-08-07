@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 
 {% load disqus_tags %}
-{% set_disqus_developer 1 %}
+{% disqus_num_replies %}
 
 <header class="bgimage">
     <div class="container">
@@ -27,17 +26,13 @@
                     {% if item.image == None %}
                     <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
                     {% else %}
-                    <a href="{% url 'item_detail' item.id %}#disqus_threads" data-disqus-identifier="{{ item.id }}">
+                    <a href="{% url 'item_detail' item.id %}">
                         <img src="static/images/{{ item.image }}" class="img-responsive"
                              alt="Images of {{ item.image}}"
                              align="center">
                     </a>
 
-                   <!-- <a href="{% url 'item_detail' item.id %}#!disqus_thread" data-disqus-identifier="{{ item.id }}">Comments</a>
-                    <a href="{% url 'item_detail' item.id %}" data-disqus-identifier="{{item.id}}">Leave a comment</a>-->
-                    <a href="{% url 'item_detail' item.id %}#disqus_thread"></a>
-
-                    <!--<span class="disqus-comment-count" data-disqus-identifier="{{ item.id }}"> item of {{ item.id }}</span>-->
+                     <a href="{% url 'item_detail' item.id %}#disqus_thread"></a>
                     {% endif %}
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
