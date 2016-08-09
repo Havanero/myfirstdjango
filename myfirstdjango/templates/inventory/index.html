@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load staticfiles %}
+
 
 {% load disqus_tags %}
 {% disqus_num_replies %}
 
-<header class="bgimage">
-    <div class="container">
-    </div>
+<header>
+    <img src="{% static 'images/Spalvotasshuofonas.png' %}" class="img-responsive" width="100%px" height="310px">
+
 </header>
 <div class="container">
     <h4>Available Paintings </h4>
@@ -32,7 +34,8 @@
                              align="center">
                     </a>
 
-                     <a href="{% url 'item_detail' item.id %}#disqus_thread"></a>
+                    <a href="{% url 'item_detail' item.id %}#disqus_thread"></a>
+                    <div class="clear-fix visible-block"></div>
                     {% endif %}
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
