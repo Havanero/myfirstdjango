@@ -1,15 +1,9 @@
-#bgimage {
+.bgimage {
   background-image: url('../images/Spalvotasshuofonas.png');
+  background-size: 100%;
+  height: 310px;
+  background-repeat:no-repeat;
   background-position: bottom bottom;
-  background-size: cover;
-  height: 310px;
-  color: gray;
-
-}
-
-#my {
-  background-image: url('../images/Spalvotasshuofonas.png');
-  height: 310px;
 }
 
 .image_details {
@@ -20,19 +14,12 @@
 }
 
 
-@media (max-width: 767px){
-    .img-responsive {
-        max-width: 100%;
-        mix-width: 100%;
-    }
+@media(max-width:1062px){
     .bgimage{
-        max-width: 100%;
-        mix-width: 100%;
-        border: 3px solid red;
-        background-size: cover;
-
-    }
-
+     background-size: 100%;
+     height: 103.490;
+     width: 100%;
+     }
 }
 
 .full_image {
@@ -49,6 +36,7 @@ footer {
     color: gray;
     font-size: .8em;
 }
+
 
 footer p {
     text-align: center;
