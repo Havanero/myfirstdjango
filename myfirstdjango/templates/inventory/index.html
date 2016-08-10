@@ -11,8 +11,9 @@
 </header>
 
     <div class="container">
+     <h3>List of Paintings </h3>
         <div class="row">
-            <h4>Available Paintings </h4>
+           
             {% for item in items %}
             {% if forloop.counter|divisibleby:3 %}
             <div class="container">
