@@ -3,48 +3,54 @@
 {% block content %}
 {% load staticfiles %}
 
+{% load print_tags %}
 
-{% load disqus_tags %}
-{% disqus_num_replies %}
 <header class="bgimage" role="banner">
-
 </header>
 
-    <div class="container">
-     <h3>List of Paintings </h3>
-        <div class="row">
-           
-            {% for item in items %}
-            {% if forloop.counter|divisibleby:3 %}
-            <div class="container">
-                <div class="row">
-                    {% endif %}
-                    <div class="col-sm-4">
-                        <h3><a href="{% url 'item_detail' item.id %}">
-                            {{ item.title|capfirst }}
-                        </a>
-                        </h3>
-                        <p>{{ item.description|capfirst }}</p>
-                        {% if item.image == None %}
-                        <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
-                        {% else %}
+<div class="container">
+    <h3>List of Paintings </h3>
+    <div class="row">
+
+        {% for item in items %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="container">
+            <div class="row">
+                {% endif %}
+                <div class="col-sm-4">
+                    <h3><a href="{% url 'item_detail' item.id %}">
+                        {{ item.title|capfirst }}
+                    </a>
+                    </h3>
+                    <p>{{ item.description|capfirst }}</p>
+                    {% if item.image == None %}
+                    <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
+                    {% else %}
+                    <a href="{% url 'item_detail' item.id %}">
+                        <img src="static/images/{{ item.image }}" class="img-responsive"
+                             alt="Images of {{ item.image}}"
+                             align="center">
+                    </a>
+
+                    <div id="facebook">
                         <a href="{% url 'item_detail' item.id %}">
-                            <img src="static/images/{{ item.image }}" class="img-responsive"
-                                 alt="Images of {{ item.image}}"
-                                 align="center">
+                            <span class="fb-comments-count" data-href="{% url 'item_detail' item.id %}"
+                                  data-mobile="true"></span>
+                            comments
                         </a>
 
-                        <a href="{% url 'item_detail' item.id %}#disqus_thread"></a>
-                        <div class="clear-fix visible-block"></div>
-                        {% endif %}
+                        <span class="fb-like" data-href="{% url 'item_detail' item.id %}"
+                              data-layout="button_count" data-action="like" data-size="small"
+                              data-show-faces="true" data-share="false" data-mobile="true"></span>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
+                    {% endif %}
                 </div>
+                {% if forloop.counter|divisibleby:3 %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
+</div>
+{% endblock %}
 
-
-    {% endblock %}

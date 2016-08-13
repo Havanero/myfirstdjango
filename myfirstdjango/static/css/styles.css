@@ -41,9 +41,20 @@ footer {
 footer p {
     text-align: center;
 }
-#disqus_thread {
-padding: 0px !important;
-margin-top:  5px !important;
-background-color: white !important;
+
+#facebook {
+  width: 216px;
 }
+.fb-comments-count {
+    display: inline-block;
+    margin: 0px;
+    border: 3px solid white;
+}
+.fb-like {
+    display: inline-block;
+    align: bottom;
+    border: 3px solid white;
+}
+
+
 

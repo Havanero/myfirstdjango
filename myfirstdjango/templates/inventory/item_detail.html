@@ -2,8 +2,6 @@
 
 
 {% block content %}
-{% load disqus_tags %}
-
 
 <div class="container">
     <div class="row">
@@ -19,11 +17,13 @@
     </div>
     <div class="row">
         <div class="col-sx-6 col-md-6">
-            <div id="disqus_thread">
-                {% disqus_show_comments "cubanofm-com" %}
-                {% endif %}
-
-            </div>
+            <p>
+            <div class="fb-like" data-href="{% url 'item_detail' item.id %}" data-layout="button_count"
+                 data-action="like"
+                 data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-comments" data-href="{% url 'item_detail' item.id %}" data-numposts="5"
+                 data-mobile="true"></div>
+            {% endif %}
         </div>
     </div>
 </div>
