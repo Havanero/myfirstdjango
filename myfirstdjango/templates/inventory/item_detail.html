@@ -21,10 +21,31 @@
             <div class="fb-like" data-href="{% url 'item_detail' item.id %}" data-layout="button_count"
                  data-action="like"
                  data-size="small" data-show-faces="true" data-share="true"></div>
-            <div class="fb-comments" data-href="{% url 'item_detail' item.id %}" data-numposts="5"
+            <div class="fb-comments" data-href="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}"
+                 data-numposts="5"
                  data-mobile="true"></div>
             {% endif %}
         </div>
     </div>
 </div>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1158027050953595',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
 {% endblock %}
