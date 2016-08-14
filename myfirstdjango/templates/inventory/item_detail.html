@@ -10,11 +10,13 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1158027050953595";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+
+</script>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-lg-12">
             <a href="{% url 'index' %}">Back to Index</a>
             <h3>{{ item.title|capfirst}}</h3>
             <p>{{ item.description }}</p>
@@ -24,18 +26,25 @@
             <img class="img-responsive" src="/static/images/{{ item.image }}" alt="Icon">
         </div>
     </div>
-    <div class="row">
-        <div class="col-sx-6 col-md-6">
-            <p>
-            <div class="fb-like" data-href="http://www.cubanofm.com/item/{{ item.id }}" data-layout="standard"
-                 data-action="like"
-                 data-size="small" data-show-faces="true" data-share="true"></div>
-
-            <p></p>
-            <div class="fb-comments" data-href="http://www.cubanofm.com/item/{{ item.id }}"
-                 data-numposts="5"
-                 data-mobile="true"></div>
-            {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sx-12">
+                <p>
+                <div class="fb-like" data-href="http://www.cubanofm.com/item/{{ item.id }}" data-layout="standard"
+                     data-action="like"
+                     data-size="small" data-show-faces="true" data-share="true" data-mobile="true" data-width="100"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="fb-comments" data-href="http://www.cubanofm.com/item/{{ item.id }}"
+                     data-numposts="5"
+                     data-mobile="true"
+                     data-width="100"></div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
