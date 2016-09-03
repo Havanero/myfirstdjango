@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+{% load print_tags %}
+
+<div class="content container">
+
+    <h3>Available Paintings</h3>
+    <div class="row">
+
+        {% for item in items %}
+        <div class="col-sm-4">
+            <h3><a href="{% url 'item_detail' 'paint_details' item.id %}">
+                {{ item.title|capfirst }}
+            </a>
+            </h3>
+            <p>{{ item.description|capfirst }}</p>
+            {% if item.image == None %}
+            <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
+            {% else %}
+            <a href="{% url 'item_detail' 'paint_details' item.id %}">
+                <img src="static/images/{{ item.image }}" class="img-responsive"
+                     alt="Images of {{ item.image}}"
+                     align="center">
+            </a>
+            <div id="facebook">
+                <a href="{% url 'item_detail' 'paint_details' item.id %}">
+                            <span class="fb-comments-count"
+                                  data-href="http://www.cubanofm.com/item/paint_details/{{ item.id }}"
+                                  data-mobile="true"></span>
+                    comments
+                </a>
+
+                <span class="fb-like" data-href="http://www.cubanofm.com/item/paint_details/{{ item.id }}"
+                      data-layout="button_count" data-action="like" data-size="small"
+                      data-show-faces="true" data-share="false" data-mobile="true"></span>
+            </div>
+
+            {% endif %}
+        </div> <!--cols !-->
+        {% endfor %}
+    </div> <!--row !-->
+</div> <!--content !-->
+<!--data-href=" {{ request.build_absolute_uri }}{{ object.get_absolute_url }}item/{{ item.id }}"-->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1158027050953595";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+{% endblock %}

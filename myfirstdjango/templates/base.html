@@ -8,26 +8,42 @@
     <meta name="Paintings For Sale" content="Dog Paintings">
     <meta name="Dog Paintings" content="Dog Paintings">
     <meta property="fb:app_id" content="1158027050953595"/>
-   <!-- <meta property="fb:admins" content="NelsonBraga"/> !-->
-    <!--link rel="stylesheet" href="{% static 'main.css' %}"!-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css'  %}">
 
 </head>
 
+<header class="bgimage" role="banner">
+</header>
+<nav class="navbar navbar-default inverted">
+    <div class="container">
+
+        <div class="col-xs-12">
+            <ul class="nav nav-pills">
+                <li><a href="{% url 'list_paintings' %}"><span class="label label-info">Available Paintings</span></a></li>
+                <li><a href="{% url 'list_graphics' %}"><span class="label label-info">Graphic Designs</span></a></li>
+                <li><a href="{% url 'list_charity' %}"><span class="label label-info">Charity Designs</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
 <body>
+
+
 {% block content %}
+
 {% endblock content %}
 <footer>
-    <p>Posted by: Evil Dog</p>
+    <p>Posted by: Evil Dog Inc.</p>
     <p>All Rights Reserved</p>
 </footer>
 
-<!--script src="{% static 'main.js' %}"></script !-->
-<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'js/my_javascript.js' %}"></script>
 <!--<script id="dsq-count-scr" src="//cubanofm-com.disqus.com/count.js" async></script>-->
 </body>
 

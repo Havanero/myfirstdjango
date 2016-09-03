@@ -8,7 +8,10 @@ from myfirstdjango import settings
 
 urlpatterns = [
                   url(r'^$', views.index, name='index'),
-                  url(r'^item/(?P<item_id>\d+)/', views.item_details, name='item_detail'),
+                  url(r'^list_paintings', views.list_of_paintings, name='list_paintings'),
+                  url(r'^item/(?P<url_page>\w+)/(?P<item_id>\d+)/', views.item_details, name='item_detail'),
+                  url(r'^list_charity', views.list_of_charity_work, name='list_charity'),
+                  url(r'^list_graphics', views.list_of_graphics_work, name='list_graphics'),
                   url(r'^admin/', admin.site.urls),
                   url(r'^static/(?P<path>.*)$', serve)
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -56,5 +56,20 @@ footer p {
     border: 3px solid white;
 }
 
+.navbar-toggle {
+    z-index:3;
+}
 
+@media (min-width: 768px)
+.navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+}
 
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    padding-left: 0px;
+}
