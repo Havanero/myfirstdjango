@@ -28,12 +28,12 @@
             <div id="facebook">
                 <a href="{% url 'item_detail' 'graphic_paint_details' item.id %}">
                             <span class="fb-comments-count"
-                                  data-href="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}/item/{{ item.id }}/"
+                                  data-href="http://www.cubanofm.com/item/graphic_paint_details/{{ item.id }}/"
                                   data-mobile="true"></span>
                     comments
                 </a>
 
-                <span class="fb-like" data-href="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}/item/{{ item.id }}/"
+                <span class="fb-like" data-href="http://www.cubanofm.com/item/graphic_paint_details/{{ item.id }}/"
                       data-layout="button_count" data-action="like" data-size="small"
                       data-show-faces="true" data-share="false" data-mobile="true"></span>
             </div>
