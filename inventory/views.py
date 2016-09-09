@@ -20,26 +20,30 @@ def list_of_paintings(request):
 
 def item_details(request, item_id, url_page):
     item = None
+    previous_url = None
     if 'charity_paint_details' == url_page:
         try:
+            previous_url = 'list_charity'
             item = CharityDesign.objects.get(id=item_id)
         except CharityDesign.DoesNotExist:
             raise Http404('This item does not exist')
 
     if 'paint_details' == url_page:
         try:
+            previous_url = 'list_paintings'
             item = Paintings.objects.get(id=item_id)
         except Paintings.DoesNotExist:
             raise Http404('This item does not exist')
 
     if 'graphic_paint_details' == url_page:
         try:
+            previous_url = 'list_graphics'
             item = GraphicDesign.objects.get(id=item_id)
         except GraphicDesign.DoesNotExist:
             raise Http404('This item does not exist')
 
     return render(request, 'inventory/item_detail.html', {
-        'item': item
+        'item': item, 'previous_url': previous_url,
     })
 
 

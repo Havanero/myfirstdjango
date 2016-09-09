@@ -2,12 +2,19 @@
 
 
 {% block content %}
-
+<head>
+    <title>Evil Dog Paintings</title>
+    <meta property="og:url"           content="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ item.title|capfirst}}" />
+    <meta property="og:description"   content="{{ item.description }}" />
+    <meta property="og:image"         content="https://www.cubanofm.com/static/images/{{ item.image }}" />
+</head>
 <div class="container">
 
     <div class="row">
         <div class="col-sm-6">
-            <a href="{% url 'list_paintings' %}">Back to Listings</a>
+            <a href="{% url previous_url %}">Back to Listings</a>
             <h3>{{ item.title|capfirst}}</h3>
             <p>{{ item.description }}</p>
             {% if item.image == None %}
@@ -21,9 +28,8 @@
             <div class="col-sx-12">
                 <p>
                 <div class="fb-like" data-href="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}"
-                     data-layout="standard"
-                     data-action="like"
-                     data-size="small" data-show-faces="true" data-share="true" data-mobile="true" data-width="100"></div>
+                     data-layout="standard" data-action="like" data-size="small"
+                     data-show-faces="true" data-share="true" data-width="340"></div>
             </div>
         </div>
     </div>
