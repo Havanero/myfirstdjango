@@ -1,5 +1,5 @@
 {% load staticfiles %}
-
+{% load print_tags %}
 <html>
 
 <head>
@@ -50,7 +50,8 @@
 
 {% endblock content %}
 <footer>
-    <p>Posted by: Evil Dog Inc.</p>
+    <p>Powered by: Evil Dog Inc. <br>
+       Version: {% get_app_version %}</p>
     <p>All Rights Reserved</p>
 </footer>
 
