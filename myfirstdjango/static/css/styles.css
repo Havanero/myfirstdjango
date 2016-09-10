@@ -1,3 +1,83 @@
+@import 'https://fonts.googleapis.com/css?family=Chau+Philomene+One|Shadows+Into+Light|Syncopate:400,700';
+
+body{
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 300;
+    font-size: 2em;
+    position: relative;
+
+}
+
+body{
+
+    line-height: 0.9em;
+
+}
+
+.label-info {
+    background-color: transparent;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: indigo;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.navbar-default {
+    background-color: lightgray;
+    border-color: #e7e7e7;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 15px 10px;
+}
+.nav {
+    padding-left: 10;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+body h3 a{
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 200;
+    font-size: 1.7em;
+    position: relative;
+
+}
+#desc{
+    font-family: 'Chau Philomene One', sans-serif;
+    font-weight: 100;
+    font-size: 0.8em;
+    position: relative;
+    color: dimgrey;
+}
+
+h3 a {
+      color: indigo;
+      text-decoration: none;
+      }
+
+#h_title h3 {
+      color: indigo;
+      text-decoration: none;
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 200;
+      font-size: 1.7em;
+      position: relative;
+      }
+a {
+    color: dimgray;
+    text-decoration: none;
+}
+
 .bgimage {
   background-image: url('../images/Spalvotasshuofonas.png');
   background-size: 100%;
@@ -34,7 +114,8 @@ footer {
     margin-top: 20px; /* space between content and footer */
     background: #CCFFFF;
     color: gray;
-    font-size: .8em;
+    font-size: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 
@@ -51,25 +132,11 @@ footer p {
     border: 3px solid white;
 }
 .fb-like {
-    display: inline-block;
-    align: bottom;
-    border: 3px solid white;
+    border: 1px solid transparent;
+    line-height: 1em;
 }
 
-.navbar-toggle {
-    z-index:3;
-}
 
-@media (min-width: 768px)
-.navbar-nav>li>a {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 0px;
-}
-
-.nav>li>a {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    padding-left: 0px;
-}
+ .page {
+    padding: 50px 0;
+   }

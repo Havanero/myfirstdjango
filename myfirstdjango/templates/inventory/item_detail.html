@@ -4,18 +4,19 @@
 {% block content %}
 <head>
     <title>Evil Dog Paintings</title>
-    <meta property="og:url"           content="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{ item.title|capfirst}}" />
-    <meta property="og:description"   content="{{ item.description }}" />
-    <meta property="og:image"         content="https://www.cubanofm.com/static/images/{{ item.image }}" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ item.title|capfirst}}"/>
+    <meta property="og:description" content="{{ item.description }}"/>
+    <meta property="og:image" content="https://www.cubanofm.com/static/images/{{ item.image }}"/>
 </head>
 <div class="container">
 
     <div class="row">
         <div class="col-sm-6">
             <a href="{% url previous_url %}">Back to Listings</a>
-            <h3>{{ item.title|capfirst}}</h3>
+
+            <div id="h_title"><p><h3>{{ item.title|capfirst}}</h3></div>
             <p>{{ item.description }}</p>
             {% if item.image == None %}
             <img class="img-responsive" src="/static/images/no_image.jpg" alt="Icon">

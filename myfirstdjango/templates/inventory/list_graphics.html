@@ -15,7 +15,7 @@
                 {{ item.title|capfirst }}
             </a>
             </h3>
-            <p>{{ item.description|capfirst }}</p>
+            <div id="desc"><p>{{ item.description|capfirst }}</p></div>
             {% if item.image == None %}
             <img src="images/no_image.jpg" class="img-responsive" alt="No Image Photo">
             {% else %}

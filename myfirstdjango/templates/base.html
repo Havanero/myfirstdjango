@@ -19,13 +19,16 @@
 </header>
 <nav class="navbar navbar-default inverted">
     <div class="container">
-
-        <div class="col-xs-12">
-            <ul class="nav nav-pills">
-                <li><a href="{% url 'list_paintings' %}"><span class="label label-info">Available Paintings</span></a></li>
-                <li><a href="{% url 'list_graphics' %}"><span class="label label-info">Graphic Designs</span></a></li>
-                <li><a href="{% url 'list_charity' %}"><span class="label label-info">Charity Designs</span></a></li>
-            </ul>
+        <div class="row">
+            <div class="col-sx-12">
+                <ul class="nav nav-pills">
+                    <li><a href="{% url 'list_paintings' %}"><span class="label label-info">Paintings</span></a></li>
+                    <li><a href="{% url 'list_graphics' %}"><span class="label label-info">Graphic Design</span></a>
+                    </li>
+                    <li><a href="{% url 'list_charity' %}"><span class="label label-info">Charity Design</span></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -38,7 +41,10 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1158027050953595";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+
+
+</script>
 
 {% block content %}
 
