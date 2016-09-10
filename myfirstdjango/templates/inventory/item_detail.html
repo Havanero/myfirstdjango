@@ -17,7 +17,7 @@
             <a href="{% url previous_url %}">Back to Listings</a>
 
             <div id="h_title"><p><h3>{{ item.title|capfirst}}</h3></div>
-            <p>{{ item.description }}</p>
+            <div id="desc"><p>{{ item.description|capfirst }}</p></div>
             {% if item.image == None %}
             <img class="img-responsive" src="/static/images/no_image.jpg" alt="Icon">
             {% else %}
