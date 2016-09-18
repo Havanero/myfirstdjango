@@ -6,6 +6,7 @@ class Paintings(models.Model):
     description = models.TextField()
     amount = models.IntegerField()
     image = models.ImageField(null=True)
+    datetime = models.DateTimeField(auto_now_add=True, verbose_name="Uploaded at")
 
 
 class GraphicDesign(models.Model):
@@ -13,6 +14,7 @@ class GraphicDesign(models.Model):
     description = models.TextField()
     amount = models.IntegerField()
     image = models.ImageField(null=True)
+    datetime = models.DateTimeField(auto_now_add=True, verbose_name="Uploaded at")
 
 
 class CharityDesign(models.Model):
@@ -20,3 +22,4 @@ class CharityDesign(models.Model):
     description = models.TextField()
     amount = models.IntegerField()
     image = models.ImageField(null=True)
+    datetime = models.DateTimeField(auto_now_add=True, verbose_name="Uploaded at")
