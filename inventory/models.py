@@ -8,6 +8,9 @@ class Paintings(models.Model):
     image = models.ImageField(null=True)
     datetime = models.DateTimeField(auto_now_add=True, verbose_name="Uploaded at")
 
+    class Meta:
+        ordering = ['-datetime']
+
 
 class GraphicDesign(models.Model):
     title = models.CharField(max_length=200)
@@ -16,6 +19,9 @@ class GraphicDesign(models.Model):
     image = models.ImageField(null=True)
     datetime = models.DateTimeField(auto_now_add=True, verbose_name="Uploaded at")
 
+    class Meta:
+        ordering = ['-datetime']
+
 
 class CharityDesign(models.Model):
     title = models.CharField(max_length=200)
@@ -23,3 +29,6 @@ class CharityDesign(models.Model):
     amount = models.IntegerField()
     image = models.ImageField(null=True)
     datetime = models.DateTimeField(auto_now_add=True, verbose_name="Uploaded at")
+
+    class Meta:
+        ordering = ['-datetime']
