@@ -18,9 +18,11 @@ body{
     background-color: transparent;
 }
 
+/*
+@media (min-width:321px){
 .label {
     display: inline;
-    padding: .2em .6em .3em;
+    padding: .2em .6em .3em .1em;
     font-size: 75%;
     font-weight: 700;
     line-height: 1;
@@ -30,6 +32,21 @@ body{
     vertical-align: baseline;
     border-radius: .25em;
 }
+}*/
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em .0em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: indigo;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
 .navbar-default {
     background-color: lightgray;
     border-color: #e7e7e7;
@@ -41,6 +58,7 @@ body{
 }
 .nav {
     padding-left: 10;
+    padding-right: 0;
     margin-bottom: 0;
     list-style: none;
 }
@@ -140,3 +158,4 @@ footer p {
  .page {
     padding: 50px 0;
    }
+
