@@ -10,7 +10,7 @@
     <h3>Paintings</h3>
     <div class="row">
         {% for item in items %}
-        <div class="col-sm-4">
+        <div class="col-sx-12 col-md-4">
             <h3><a href="{% url 'item_detail' 'paint_details' item.id %}">
                 {{ item.title|capfirst }}
             </a>

@@ -10,6 +10,13 @@
     <meta property="fb:app_id" content="1158027050953595"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta property="og:url" content="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ item.title|capfirst}}"/>
+    <meta property="og:description" content="{{ item.description }}"/>
+    <meta property="og:image" content="https://www.cubanofm.com/static/images/{{ item.image }}"/>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css'  %}">
 
@@ -44,6 +51,7 @@
 }(document, 'script', 'facebook-jssdk'));
 
 
+
 </script>
 
 {% block content %}
@@ -51,7 +59,7 @@
 {% endblock content %}
 <footer>
     <p>Powered by: Evil Dog Inc. <br>
-       Version: {% get_app_version %}</p>
+        Version: {% get_app_version %}</p>
     <p>All Rights Reserved</p>
 </footer>
 
