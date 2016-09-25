@@ -38,11 +38,12 @@
             </div>
         </div>
     </div>
-
 </nav>
 <body>
 <div id="fb-root"></div>
+
 <script>(function(d, s, id) {
+  var loginName;
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
@@ -50,7 +51,84 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1158027050953595',
+      status     : true,
+      xfbml      : true,
+      version    : 'v2.7'
+    });
 
+  FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+  //          getUserInfo();
+          
+          }
+          else {
+            //console.log('initiate FB login...');
+            FB.login();
+          }
+        });
+
+  /*  FB.Event.subscribe('edge.create', like_callback);
+    FB.Event.subscribe('edge.remove', unlike_callback);
+
+    FB.Event.subscribe('comment.create', comment_callback);
+    FB.Event.subscribe('comment.remove', comment_callback);
+
+    FB.Event.subscribe('xfbml.render', facebook_plugin_loader);*/
+};
+
+var like_callback = function(response){
+  console.log(loginName + ": Like callback: " + response);
+  notifyUserLike(response);
+}
+var unlike_callback = function(response){
+  console.log(loginName + ": UnLike callback: " + response);
+}
+
+var facebook_plugin_loader = function(response){
+  console.log("Plugin has finished loading" + response);
+}
+
+var comment_callback = function(response) {
+  console.log("comment_callback");
+  console.log(response);
+
+}
+
+function notifyUserLike(response){
+  console.log("adding " + response)
+  FB.api(
+  'me/og.likes',
+  'post',
+  {
+     'object': '"http://samples.ogp.me/226075010839791"'
+  },
+
+ function(response) {
+      if (response && !response.error) {
+        console.log("status is " + response.status)
+
+      }else{
+        console.log("full response " + response.status)
+      }
+  }
+);
+  
+};
+
+function getUserInfo(){
+      FB.api(
+      '/me',
+      'GET',
+      {"fields":"id,name"},
+      function(response) {
+          loginName=response.name;
+          console.log("we have response " + response.name);
+         
+      });
+    };
 
 </script>
 
@@ -62,11 +140,10 @@
         Version: {% get_app_version %}</p>
     <p>All Rights Reserved</p>
 </footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+    </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
 <script src="{% static 'js/my_javascript.js' %}"></script>
-<!--<script id="dsq-count-scr" src="//cubanofm-com.disqus.com/count.js" async></script>-->
 </body>
-
 </html>

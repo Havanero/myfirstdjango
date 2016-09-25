@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-
 <div class="container">
 
     <div class="row">
 
-        <div class="col-sx-12 col-md-4">
+        <div class="col-sx-12 col-md-6 col-lg-6">
 
             <a href="{% url previous_url %}">Back to Listings</a>
-
             <div id="h_title"><p>
                 <h3>{{ item.title|capfirst}}</h3></div>
             <div id="desc"><p>{{ item.description|capfirst }}</p></div>
@@ -20,17 +17,28 @@
             <img class="img-responsive" src="/static/images/{{ item.image }}" alt="Icon">
         </div>
     </div>
-    <div class="container">
+
         <div class="row">
-            <div class="col-sx-12">
+            <div class="col-sx-12 col-md-6 col-lg-6">
                 <p>
                 <div class="fb-like" data-href="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}"
                      data-layout="standard" data-action="like" data-size="small"
                      data-show-faces="true" data-share="true" data-width="340"></div>
             </div>
         </div>
+         <div id="facebook-id">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+            </script>
+                <script>
+                (function($) {
+                $(document).ready(function() {
+                 $('html, body').animate({
+                   'scrollTop':   $('#facebook-id').offset().top
+                 }, 2000);
+                });
+                })(jQuery);
+            </script>
     </div>
-    <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="fb-comments" data-href="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}"
@@ -39,7 +47,6 @@
                      data-width="100"></div>
                 {% endif %}
             </div>
-        </div>
     </div>
 </div>
 {% endblock %}
