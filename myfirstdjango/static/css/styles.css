@@ -97,7 +97,7 @@ a {
 }
 
 .bgimage {
-  background-image: url('../images/Spalvotasshuofonas.png');
+  background-image: url('../images/BG.jpeg');
   background-size: 100%;
   height: 310px;
   background-repeat:no-repeat;
@@ -158,7 +158,6 @@ footer p {
  .page {
     padding: 50px 0;
    }
-
 
 .fb-comments {
     background-image: url('../images/Loading_icon.gif');

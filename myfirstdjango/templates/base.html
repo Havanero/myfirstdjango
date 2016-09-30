@@ -43,7 +43,7 @@
 <div id="fb-root"></div>
 
 <script>(function(d, s, id) {
-  var loginName;
+  var loginName, loginPicture;
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
@@ -61,34 +61,39 @@ window.fbAsyncInit = function() {
 
   FB.getLoginStatus(function(response) {
           if (response.status === 'connected') {
-  //          getUserInfo();
-          
+              getUserInfo();  
           }
           else {
-            //console.log('initiate FB login...');
-           // FB.login();
+            loginName = null;
+            console.log("Not Logged in")
+
           }
         });
 
-  /*  FB.Event.subscribe('edge.create', like_callback);
-    FB.Event.subscribe('edge.remove', unlike_callback);
-
-    FB.Event.subscribe('comment.create', comment_callback);
-    FB.Event.subscribe('comment.remove', comment_callback);
-
-    FB.Event.subscribe('xfbml.render', facebook_plugin_loader);*/
+  FB.Event.subscribe('edge.create', like_callback);
+  FB.Event.subscribe('edge.remove', unlike_callback);
+  FB.Event.subscribe('auth.statusChange', login_callback);
+  FB.Event.subscribe('auth.login', login_callback);
 };
-
 var like_callback = function(response){
-  console.log(loginName + ": Like callback: " + response);
-  notifyUserLike(response);
+  if (!loginName){
+    loginName = getUserInfo();
+  //  document.location.reload(true);
+
+  }
+   if(!loginPicture){
+    loginPicture = getUserPicture();
+  }
+  <!--console.log(loginName + ": Like callback: " + response + " url is " + loginPicture);-->
+  var payload  = {url : response, user_name:loginName, picture_url:loginPicture};
+  postJson(payload);
 }
 var unlike_callback = function(response){
-  console.log(loginName + ": UnLike callback: " + response);
+  <!--console.log(loginName + ": UnLike callback: " + response);-->
 }
 
 var facebook_plugin_loader = function(response){
-  console.log("Plugin has finished loading" + response);
+  <!--console.log("Plugin has finished loading" + response);-->
 }
 
 var comment_callback = function(response) {
@@ -97,26 +102,10 @@ var comment_callback = function(response) {
 
 }
 
-function notifyUserLike(response){
-  console.log("adding " + response)
-  FB.api(
-  'me/og.likes',
-  'post',
-  {
-     'object': '"http://samples.ogp.me/226075010839791"'
-  },
-
- function(response) {
-      if (response && !response.error) {
-        console.log("status is " + response.status)
-
-      }else{
-        console.log("full response " + response.status)
-      }
-  }
-);
+var login_callback = function(response){
+   getUserInfo();
+}
   
-};
 
 function getUserInfo(){
       FB.api(
@@ -124,12 +113,46 @@ function getUserInfo(){
       'GET',
       {"fields":"id,name"},
       function(response) {
-          loginName=response.name;
-          console.log("we have response " + response.name);
+          loginName=response.name;         
+      });
+     loginPicture = getUserPicture();
+    };
+
+function getUserPicture(){
+      FB.api("/me/picture",
+      {"type":"small"},
+      function(response) {
+        if (response && !response.error) {
+          loginPicture=response.data.url;
+        }
          
       });
     };
 
+function postJson(payload){
+
+  <!--console.log("reading payload" + JSON.stringify(payload));-->
+
+  var csrftoken = getCookie('csrftoken');
+  $(function () {
+    jQuery.ajaxSetup({
+        headers: { "X-CSRFToken": getCookie("csrftoken") }
+    });
+});
+$(function () {
+    jQuery.ajax({
+        'type': 'POST',
+        'url': 'api/likes',
+        'contentType': 'application/json; charset=utf-8',
+        'data': JSON.stringify(payload), csrfmiddlewaretoken: '{{ csrf_token }}',
+        'dataType': 'text',
+        success: function(result) {
+        console.log(result)
+    }
+    }
+);
+});
+}
 </script>
 
 {% block content %}
@@ -144,6 +167,8 @@ function getUserInfo(){
     </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
   </script>
-<script src="{% static 'js/my_javascript.js' %}"></script>
+<script src="{% static 'js/my_javascript.js' %}">
+
+</script>
 </body>
 </html>

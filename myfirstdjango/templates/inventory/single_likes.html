@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<table class="table table-bordered table-inverse">
+    <thead>
+    <tr>
+        <th>FaceBook User</th>
+        <th>Profile</th>
+        <th>Liked URL</th>
+        <th>Image</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in item %}
+    <tr>
+        <th scope="row">{{ item.facebook_user }}</th>
+        <td><img src="{{ item.user_profile }}"/></td>
+        <td>{{ item.likes_url }}</td>
+
+        {% if url_page  == "graphics" %}
+        <td><img src="../../../static/images/{{item.graphics.image}}" width="200" height="80"/></td>
+        {% endif %}
+        {% if url_page  == "paintings" %}
+        <td><img src="../../../static/images/{{item.paintings.image}}" width="200" height="80"/></td>
+        {% endif %}
+        {% if url_page  == "charity" %}
+        <td><img src="../../../static/images/{{item.charity.image}}" width="200" height="80"/></td>
+        {% endif %}
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
+<script src="{% static 'js/my_javascript.js' %}">
+
+</script>
+
