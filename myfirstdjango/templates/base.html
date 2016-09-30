@@ -78,22 +78,22 @@ window.fbAsyncInit = function() {
 var like_callback = function(response){
   if (!loginName){
     loginName = getUserInfo();
-  //  document.location.reload(true);
+    document.location.reload(true);
 
   }
    if(!loginPicture){
     loginPicture = getUserPicture();
   }
-  <!--console.log(loginName + ": Like callback: " + response + " url is " + loginPicture);-->
+  console.log(loginName + ": Like callback: " + response + " url is " + loginPicture);
   var payload  = {url : response, user_name:loginName, picture_url:loginPicture};
   postJson(payload);
 }
 var unlike_callback = function(response){
-  <!--console.log(loginName + ": UnLike callback: " + response);-->
+  console.log(loginName + ": UnLike callback: " + response);
 }
 
 var facebook_plugin_loader = function(response){
-  <!--console.log("Plugin has finished loading" + response);-->
+  console.log("Plugin has finished loading" + response);
 }
 
 var comment_callback = function(response) {
@@ -131,7 +131,7 @@ function getUserPicture(){
 
 function postJson(payload){
 
-  <!--console.log("reading payload" + JSON.stringify(payload));-->
+  console.log("reading payload" + JSON.stringify(payload));
 
   var csrftoken = getCookie('csrftoken');
   $(function () {

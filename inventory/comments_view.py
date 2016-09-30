@@ -19,11 +19,7 @@ def post_items_likes(request):
                           paintings=painting_id, graphics=graphic_id, charity=charity_id,
                           user_profile=incoming_data.get('picture_url'))
         like_page.save()
-        print("done")
     return HttpResponse("OK")
-    # return render(request, 'inventory/likes.html', {
-    #     'likes': like_obj,
-    # })
 
 
 def get_items_likes(request, url_page, item_id):
@@ -33,8 +29,6 @@ def get_items_likes(request, url_page, item_id):
         try:
             target_page = 'charity'
             item = Likes.objects.filter(charity_id=item_id)
-            for it in item:
-                print(it.facebook_user, '---', it.likes_url, '---', it.charity.image)
         except CharityDesign.DoesNotExist:
             raise Http404('This item does not exist')
 
@@ -42,8 +36,6 @@ def get_items_likes(request, url_page, item_id):
         try:
             target_page = 'paintings'
             item = Likes.objects.filter(paintings_id=item_id)
-            # for it in item:
-            #     print(it.facebook_user, '---', it.likes_url, '---', it.paintings.id)
         except Paintings.DoesNotExist:
             raise Http404('This item does not exist')
 
@@ -51,8 +43,6 @@ def get_items_likes(request, url_page, item_id):
         try:
             target_page = 'graphics'
             item = Likes.objects.filter(graphics_id=item_id)
-            for it in item:
-                print(it.facebook_user, '---', it.likes_url, '---', it.graphics.image)
         except GraphicDesign.DoesNotExist:
             raise Http404('This item does not exist')
 
@@ -64,7 +54,10 @@ def get_items_likes(request, url_page, item_id):
 def get_all_page_likes(request, url_page):
     print("getting all Likes request for ", url_page)
 
-    return HttpResponse("OK")
+    item = Likes.objects.all()
+    return render(request, 'inventory/display_page_likes.html', {
+        'item': item, 'url_page': url_page,
+    })
 
 
 def extract_page_id(data):
