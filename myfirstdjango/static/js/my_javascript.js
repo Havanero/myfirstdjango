@@ -1,4 +1,6 @@
 // using jQuery
+var okResponse=null, loginName=null, loginPicture=null;
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -13,4 +15,42 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+function getUserAuthStatus(response) {
+    okResponse = response.status;
+    return response.status;
+}
+
+function getChangedStatus(){
+
+    return okResponse;
+}
+function getUserInfo(){
+      FB.api(
+      '/me',
+      'GET',
+      {"fields":"id,name"},
+      function(response) {
+          loginName=response.name;  
+      });
+    };
+
+function getUserPicture(){
+      FB.api("/me/picture",
+      {"type":"small"},
+      function(response) {
+        if (response && !response.error) {
+          loginPicture=response.data.url;
+        }
+         
+      });
+    };
+
+function getUserName(){
+    return loginName;
+}    
+
+function getPicture(){
+    return loginPicture;
 }
