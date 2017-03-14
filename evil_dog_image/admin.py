@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from inventory.comments import Likes
+from evil_dog_image.comments import Likes
 from .models import Paintings, GraphicDesign, CharityDesign
 
 

@@ -8,7 +8,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0007_auto_20160918_0036'),
+        ('evil_dog_image', '0007_auto_20160918_0036'),
     ]
 
     operations = [

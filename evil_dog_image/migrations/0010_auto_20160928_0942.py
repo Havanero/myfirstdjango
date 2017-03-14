@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0009_likes'),
+        ('evil_dog_image', '0009_likes'),
     ]
 
     operations = [

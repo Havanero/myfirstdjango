@@ -10,7 +10,7 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0005_charitydesign'),
+        ('evil_dog_image', '0005_charitydesign'),
     ]
 
     operations = [

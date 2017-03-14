@@ -1,6 +1,6 @@
 from django.db import models
 
-from inventory.models import Paintings, GraphicDesign, CharityDesign
+from evil_dog_image.models import Paintings, GraphicDesign, CharityDesign
 
 
 class Likes(models.Model):
@@ -17,4 +17,3 @@ class Likes(models.Model):
 
     class Meta:
         ordering = ['-datetime']
-

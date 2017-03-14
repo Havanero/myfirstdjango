@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0008_auto_20160928_0918'),
+        ('evil_dog_image', '0008_auto_20160928_0918'),
     ]
 
     operations = [
@@ -20,9 +20,12 @@ class Migration(migrations.Migration):
                 ('facebook_user', models.CharField(max_length=200)),
                 ('likes_url', models.TextField()),
                 ('datetime', models.DateTimeField(auto_now_add=True, verbose_name='Uploaded at')),
-                ('charity', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='inventory.CharityDesign')),
-                ('graphics', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='inventory.GraphicDesign')),
-                ('paintings', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='inventory.Paintings')),
+                ('charity', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                              to='evil_dog_image.CharityDesign')),
+                ('graphics', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                               to='evil_dog_image.GraphicDesign')),
+                ('paintings', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                                to='evil_dog_image.Paintings')),
             ],
             options={
                 'ordering': ['-datetime'],

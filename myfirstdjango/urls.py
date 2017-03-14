@@ -3,8 +3,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.static import serve
 
-from inventory import comments_view
-from inventory import views
+from evil_dog_image import comments_view
+from evil_dog_image import views
 from myfirstdjango import settings
 
 urlpatterns = [

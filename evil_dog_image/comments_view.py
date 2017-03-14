@@ -4,8 +4,8 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from inventory.comments import Likes
-from inventory.models import Paintings, GraphicDesign, CharityDesign
+from evil_dog_image.comments import Likes
+from evil_dog_image.models import Paintings, GraphicDesign, CharityDesign
 
 
 def post_items_likes(request):
@@ -46,23 +46,19 @@ def get_items_likes(request, url_page, item_id):
         except GraphicDesign.DoesNotExist:
             raise Http404('This item does not exist')
 
-    return render(request, 'inventory/single_likes.html', {
+    return render(request, 'evil_dog_image/single_likes.html', {
         'item': item, 'url_page': target_page,
     })
 
 
 def get_all_page_likes(request, url_page):
-    print("getting all Likes request for ", url_page)
-
     item = Likes.objects.all()
-    return render(request, 'inventory/display_page_likes.html', {
+    return render(request, 'evil_dog_image/display_page_likes.html', {
         'item': item, 'url_page': url_page,
     })
 
 
 def extract_page_id(data):
-    obj_str = json.dumps(data)
-    print(obj_str)
     url = data.split("/")
     if url[len(url) - 1].isdigit():
         page_name = (url[len(url) - 1])

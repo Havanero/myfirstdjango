@@ -9,18 +9,20 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0011_auto_20160928_0946'),
+        ('evil_dog_image', '0011_auto_20160928_0946'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='likes',
             name='charity',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='inventory.CharityDesign'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='evil_dog_image.CharityDesign'),
         ),
         migrations.AlterField(
             model_name='likes',
             name='paintings',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='inventory.Paintings'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='evil_dog_image.Paintings'),
         ),
     ]
