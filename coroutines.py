@@ -11,7 +11,7 @@ class COR(object):  
     self.pattern=pattern       
     self.find=self._grep()  
     
-    @coroutine   
+    @coroutine  
     def _grep(self):        
       while True:           
         line=yield           
